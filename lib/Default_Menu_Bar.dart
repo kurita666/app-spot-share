@@ -1,5 +1,42 @@
 import 'package:flutter/material.dart';
 import 'Search_Tab_Cycling.dart';
+import 'Map_Pin_Add_Info.dart'; // Map_Pin_Add_Infoファイルをインポート
+import 'Friend_Introduction.dart';
+
+class FriendIntroduction extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Positioned(
+      top: 0, // 上端に配置
+      left: 0,
+      right: 0,
+      child: Container(
+        color: Colors.white,
+        height: 60, // ボタンの高さを設定
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween, // 左右に均等に配置
+          children: [
+            IconButton(
+              icon: Icon(Icons.arrow_back), // 戻るアイコンを設定
+              onPressed: () {
+                // ボタンが押されたときの処理
+                Navigator.of(context).pop();
+              },
+            ),
+            Text(
+              '友達紹介', // ボタンのテキストを設定
+              style: TextStyle(
+                fontSize: 20, // フォントサイズを設定
+                fontWeight: FontWeight.bold, // フォントの太さを設定
+              ),
+            ),
+            SizedBox(width: 48), // ボタン間にスペースを追加
+          ],
+        ),
+      ),
+    );
+  }
+}
 
 class SearchFavoBar extends StatelessWidget {
   @override
@@ -22,6 +59,7 @@ class SearchFavoBar extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Row(
                 children: [
+                  SizedBox(width: 8),
                   Expanded(
                     flex: 8, // 検索窓の割合を8に設定
                     child: Container(
@@ -46,16 +84,6 @@ class SearchFavoBar extends StatelessWidget {
                                     ),
                                   ),
                                   SizedBox(width: 9), // アイコンとテキストの間にスペースを追加
-                                  // IconButton(
-                                  //   icon: Icon(
-                                  //     Icons.search,
-                                  //     size: 20,
-                                  //     color: Colors.grey[700],
-                                  //   ),
-                                  //   onPressed: () {
-                                  //     toggleMenuVisibility();
-                                  //   },
-                                  // ),
                                   Icon(
                                     Icons.search,
                                     size: 20,
@@ -70,27 +98,9 @@ class SearchFavoBar extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Expanded(
-                    flex: 2, // アイコンの割合を2に設定
-                    child: Stack(
-                      alignment: Alignment.center,
-                      children: [
-                        Container(
-                          height: 30.0,
-                          width: 30.0,
-                          decoration: BoxDecoration(
-                            color: Colors.grey[300], // グレーの色
-                            shape: BoxShape.circle, // 円形に設定
-                          ),
-                        ),
-                        Icon(
-                          Icons.add_location_alt_outlined, // add_location_alt_outlinedアイコンを設定
-                          size: 20, // アイコンのサイズを設定
-                          color: Colors.black, // アイコンの色を設定
-                        ),
-                      ],
-                    ),
-                  ),
+                  SizedBox(width: 16), // アイコンとアイコンの間にスペースを追加
+                  MapPinAddInfo(), // グレーの丸とアイコンを含むウィジェット
+                  SizedBox(width: 8),
                 ],
               ),
             ),

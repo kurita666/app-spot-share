@@ -1,10 +1,7 @@
 //map_screen.dart
-// import 'GoogleMapWidget.dart';
-// import 'MenuWidget.dart';
-//import 'dart:async'; // 追加
+
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-//import 'package:geolocator/geolocator.dart';
 import 'PlaceName_Favorite.dart';
 import 'Table_Display.dart';
 import 'Address_Display.dart';
@@ -12,7 +9,8 @@ import 'Business_Hours.dart';
 import 'Operating_Company.dart';
 import 'TabBar.dart';
 import 'TabBarContentView.dart';
-// import 'location_display.dart'; // LocationDisplayをインポート
+import 'Default_Menu_Bar.dart';
+//import 'Akihabara_Aria1.dart';
 
 class IconDataModel {
   final String Number;
@@ -117,6 +115,8 @@ class _MapScreenState extends State<MapScreen> with SingleTickerProviderStateMix
 
   @override
   Widget build(BuildContext context) {
+
+
     if (_customMarkerIcon == null) {
       // _customMarkerIcon がまだ初期化されていない場合はローディングなどを表示する
       return CircularProgressIndicator();
@@ -184,11 +184,27 @@ class _MapScreenState extends State<MapScreen> with SingleTickerProviderStateMix
                   ),
                 ),
               ),
+            if (!_isMenuExpanded)
+              Positioned(
+                bottom: 0,
+                left: 0,
+                right: 0,
+                child: SearchFavoBar(),
+              ),
           ],
         ),
       );
     }
   }
+
+  // _isMenuExpandedフラグを管理するための_setMenuOpened()メソッドを追加します
+  void _setMenuOpened(bool opened) {
+    setState(() {
+      _isMenuExpanded = opened;
+    });
+  }
+
+// _buildTabContentWidget()メソッド内で_isMenuExpandedフラグを確認して、SearchFavoBar()を表示するかどうかを制御します
   Widget _buildTabContentWidget(BuildContext context) {
     return DefaultTabController(
       length: 3,
@@ -199,11 +215,11 @@ class _MapScreenState extends State<MapScreen> with SingleTickerProviderStateMix
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              margin: EdgeInsets.all(0), // 外側の余白を0に設定
-              padding: EdgeInsets.all(0), // 内側の余白を0に設定
+              margin: EdgeInsets.all(0),
+              padding: EdgeInsets.all(0),
               child: Image.asset(
-                '${iconData.PlaceImage}', // 画像のパスを指定
-                fit: BoxFit.fill, // 画像を横一杯に広げる
+                '${iconData.PlaceImage}',
+                fit: BoxFit.fill,
               ),
             ),
             SizedBox(height: 20.0),
@@ -211,10 +227,10 @@ class _MapScreenState extends State<MapScreen> with SingleTickerProviderStateMix
               '${iconData.Number}',
               style: TextStyle(
                 fontSize: 8.0,
-                height: 0.8, // 行間を狭める
+                height: 0.8,
               ),
             ),
-            CompanyRow(//PlaceName_Favorite.dartファイル呼び出し
+            CompanyRow(
               isFavorite: _isFavorite,
               onPressed: () {
                 setState(() {
@@ -223,7 +239,7 @@ class _MapScreenState extends State<MapScreen> with SingleTickerProviderStateMix
               },
             ),
             SizedBox(height: 20.0),
-            TableContainer(//Table_Display.dartファイルから呼び出し
+            TableContainer(
               isFavorite: _isFavorite,
               onPressed: () {
                 setState(() {
@@ -232,13 +248,13 @@ class _MapScreenState extends State<MapScreen> with SingleTickerProviderStateMix
               },
             ),
             SizedBox(height: 8.0),
-            AddressRow(iconData: iconData), //Address_Display.dartファイル呼び出し
+            AddressRow(iconData: iconData),
             SizedBox(height: 4.0),
-            BusinessHoursRow(iconData: iconData),//Business_Hours.dartファイル呼び出し
+            BusinessHoursRow(iconData: iconData),
             SizedBox(height: 15.0),
-            OperatingCompanyRow(iconData: iconData),//Operating_Company.dartファイル呼び出し
+            OperatingCompanyRow(iconData: iconData),
             SizedBox(height: 20.0),
-            CustomTabBar(tabController: _tabController),//TabBar.dartファイル呼び出し
+            CustomTabBar(tabController: _tabController),
             Container(
               color: Colors.grey.withOpacity(0.5),
               child: Row(
@@ -246,26 +262,24 @@ class _MapScreenState extends State<MapScreen> with SingleTickerProviderStateMix
                   SizedBox(width: 8),
                   Icon(
                     Icons.trending_flat,
-                    size: 20, // アイコンのサイズを指定
-                    color: Colors.orange, // アイコンの色を黒に設定
+                    size: 20,
+                    color: Colors.orange,
                   ),
-                  SizedBox(width: 8), // アイコンとテキストの間にスペースを追加
-                  //SizedBox(height: 10),
+                  SizedBox(width: 8),
                   Text(
                     '自転車（シティサイクルタイプ）',
                     style: TextStyle(
-                      fontSize: 10.0, // テキストのフォントサイズを設定
+                      fontSize: 10.0,
                       color: Colors.black,
                     ),
                   ),
                 ],
               ),
             ),
-            //SizedBox(height: 10),
             Expanded(
               child: Stack(
                 children: [
-                  TabBarContent(//TabBarContentView.dartファイルから呼び出し
+                  TabBarContent(
                     iconData: iconData,
                     tabBarController: _tabController,
                   ),
@@ -277,4 +291,5 @@ class _MapScreenState extends State<MapScreen> with SingleTickerProviderStateMix
       ),
     );
   }
+
 }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'map_screen.dart'; // map_screen.dartファイルをインポート
-import 'Default_Menu_Bar.dart'; // Default_Menu_Bar.dartファイルをインポート
 
 void main() {
   runApp(MyApp());
@@ -15,10 +14,10 @@ class MyApp extends StatelessWidget {
         body: Stack(
           children: [
             MapScreen(), // MapScreenウィジェットを表示する
-            SearchFavoBar(), // SearchBarウィジェットを表示する
           ],
         ),
       ),
     );
   }
 }
+//テスト
