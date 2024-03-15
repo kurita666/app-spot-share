@@ -1,42 +1,6 @@
 import 'package:flutter/material.dart';
 import 'Search_Tab_Cycling.dart';
 import 'Map_Pin_Add_Info.dart'; // Map_Pin_Add_Infoファイルをインポート
-import 'Friend_Introduction.dart';
-
-class FriendIntroduction extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Positioned(
-      top: 0, // 上端に配置
-      left: 0,
-      right: 0,
-      child: Container(
-        color: Colors.white,
-        height: 60, // ボタンの高さを設定
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween, // 左右に均等に配置
-          children: [
-            IconButton(
-              icon: Icon(Icons.arrow_back), // 戻るアイコンを設定
-              onPressed: () {
-                // ボタンが押されたときの処理
-                Navigator.of(context).pop();
-              },
-            ),
-            Text(
-              '友達紹介', // ボタンのテキストを設定
-              style: TextStyle(
-                fontSize: 20, // フォントサイズを設定
-                fontWeight: FontWeight.bold, // フォントの太さを設定
-              ),
-            ),
-            SizedBox(width: 48), // ボタン間にスペースを追加
-          ],
-        ),
-      ),
-    );
-  }
-}
 
 class SearchFavoBar extends StatelessWidget {
   @override

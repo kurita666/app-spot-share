@@ -1,7 +1,6 @@
-//map_screen.dart
-
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:new_share_app/Friend_Introduction.dart';
 import 'PlaceName_Favorite.dart';
 import 'Table_Display.dart';
 import 'Address_Display.dart';
@@ -10,6 +9,7 @@ import 'Operating_Company.dart';
 import 'TabBar.dart';
 import 'TabBarContentView.dart';
 import 'Default_Menu_Bar.dart';
+import 'Friend_Introduction.dart';
 //import 'Akihabara_Aria1.dart';
 
 class IconDataModel {
@@ -73,7 +73,7 @@ class _MapScreenState extends State<MapScreen> with SingleTickerProviderStateMix
     );
   }
 
-// アイコンがタップされたときの処理
+  // アイコンがタップされたときの処理
   void _onIconTap() {
     // アイコンに関連するデータを作成
     iconData = IconDataModel(
@@ -115,8 +115,6 @@ class _MapScreenState extends State<MapScreen> with SingleTickerProviderStateMix
 
   @override
   Widget build(BuildContext context) {
-
-
     if (_customMarkerIcon == null) {
       // _customMarkerIcon がまだ初期化されていない場合はローディングなどを表示する
       return CircularProgressIndicator();
@@ -191,20 +189,60 @@ class _MapScreenState extends State<MapScreen> with SingleTickerProviderStateMix
                 right: 0,
                 child: SearchFavoBar(),
               ),
+            Positioned(
+              top: 25, // 画面の上端に配置する
+              left: 0,
+              right: 0,
+              child: Container(
+                // width: 300, // 幅を 250 に指定する
+                alignment: Alignment.center,
+                padding: EdgeInsets.symmetric(horizontal: 16.0),
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => FriendIntroducePage()), // FriendIntroducePageへの遷移
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.white, // ボタンの背景色を白に設定
+                    textStyle: TextStyle(
+                      fontSize: 13.0,
+                      color: Colors.black, // 文字色を黒に設定
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(1.0), // ボタンの角を 8.0 の半径で設定
+                    ),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'お友達を紹介してクーポンゲット！',
+                        textAlign: TextAlign.left, // テキストを左寄せに設定
+                        style: TextStyle(
+                          fontSize: 13.0,
+                          color: Colors.black,
+                        ),
+                      ),
+                      SizedBox(width: 30), // テキストとアイコンの間隔を調整
+                      Icon(
+                        Icons.arrow_forward_ios,
+                        size: 20,
+                        color: Colors.black,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       );
     }
   }
 
-  // _isMenuExpandedフラグを管理するための_setMenuOpened()メソッドを追加します
-  void _setMenuOpened(bool opened) {
-    setState(() {
-      _isMenuExpanded = opened;
-    });
-  }
-
-// _buildTabContentWidget()メソッド内で_isMenuExpandedフラグを確認して、SearchFavoBar()を表示するかどうかを制御します
+  // _buildTabContentWidget()メソッドは、_isMenuExpanded フラグに応じてウィジェットを表示するかどうかを制御します
   Widget _buildTabContentWidget(BuildContext context) {
     return DefaultTabController(
       length: 3,
@@ -291,5 +329,4 @@ class _MapScreenState extends State<MapScreen> with SingleTickerProviderStateMix
       ),
     );
   }
-
 }

@@ -1,15 +1,174 @@
 import 'package:flutter/material.dart';
 
-class FriendIntroduction extends StatelessWidget {
-  final VoidCallback onPressed;
+void main() {
+  runApp(MyApp());
+}
 
-  FriendIntroduction({required this.onPressed});
-
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: onPressed,
-      child: Text('新しいボタン'),
+    return MaterialApp(
+      home: FriendIntroducePage(),
+    );
+  }
+}
+
+class FriendIntroducePage extends StatefulWidget {
+  @override
+  _FriendIntroducePageState createState() => _FriendIntroducePageState();
+}
+
+class _FriendIntroducePageState extends State<FriendIntroducePage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        automaticallyImplyLeading: false, // 戻るアイコンを削除する
+        // アクションを設定
+        actions: [
+          Container(
+            child: IconButton(
+              icon: Icon(
+                Icons.keyboard_arrow_down,
+                size: 20,
+                color: Colors.black,
+              ),
+              onPressed: () {
+                // 前のページに戻る
+                Navigator.pop(context);
+              },
+            ),
+          ),
+        ],
+        backgroundColor: Colors.orange, // ヘッダー部の背景色を青に設定
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              child: Image.asset(
+                'assets/images/coupon.png',
+                fit: BoxFit.fill,
+              ),
+            ),
+            SizedBox(height: 20), // 余白を追加
+            Container(
+              padding: EdgeInsets.all(8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start, // テキストを左寄せに設定
+                children: [
+                  Text(
+                    '①紹介コードを送る',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                  ),
+                  SizedBox(height: 8), // テキスト間の余白を追加
+                  Text(
+                    'まだHELLO CYCLINGを使っていない家族や友達\nに紹介コードを送りましょう',
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 10), // 余白を追加
+            Container(
+              padding: EdgeInsets.all(8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start, // テキストを左寄せに設定
+                children: [
+                  Text(
+                    '②クーポンGET！',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                  ),
+                  SizedBox(height: 8), // テキスト間の余白を追加
+                  Text(
+                    '相手が紹介コードを入力して会員登録をすると、\nお互いに30分無料乗車クーポン（130円分）を必\nずプレゼント！',
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              color: Color(0xFFF0E68C), // 背景色を設定
+              padding: EdgeInsets.all(8.0),
+              child: Column(
+                children: [
+                  SizedBox(height: 8), // テキスト間の余白を追加
+                  Text(
+                    'あなたの紹介コード',
+                  ),
+                  SizedBox(height: 8),
+                  Container(
+                    height: 54,
+                    width: 300,
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.grey, width: 2), // 外枠の色と太さを設定
+                    ),
+                    child: Table(
+                      children: [
+                        TableRow(
+                          children: [
+                            TableCell(
+                              child: Container(
+                                height: 50,
+                                width: 300,
+                                color: Colors.white,
+                                child: Center(
+                                  child: Text('A B C D E F G', style: TextStyle(color: Colors.black, fontSize: 20)), // フォントサイズを20に設定
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center, // 中央寄せに設定
+                    children: [
+                      Icon(
+                        Icons.arrow_drop_up,
+                        size: 20,
+                        color: Colors.grey,
+                      ),
+                      Text('タップしてコピーする', style: TextStyle(color: Colors.grey, fontSize: 9)), // フォントサイズを9に設定
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              width: double.infinity, // 横幅いっぱいに広げる
+              color: Colors.orange, // 背景色を設定
+              padding: EdgeInsets.all(8.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(height: 12), // テキストとボタンの間にスペースを追加
+                  Text(
+                    '\\ 必ず紹介人数分のクーポンがもらえる /',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(color: Colors.black, fontSize: 15, fontWeight: FontWeight.bold), // フォントサイズを15に設定
+                  ),
+                  SizedBox(height: 8), // テキストとボタンの間にスペースを追加
+                  ElevatedButton(
+                    onPressed: () {
+                      // ボタンが押されたときの処理をここに記述します
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.black, // ボタンの背景色を設定
+                      padding: EdgeInsets.symmetric(horizontal: 100, vertical: 12), // ボタン内の余白を設定
+                      // ボタン内のテキストのスタイルを設定
+                      textStyle: TextStyle(fontSize: 16, color: Colors.white),
+                    ),
+                    child: Text(
+                      '友達にシェア',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
