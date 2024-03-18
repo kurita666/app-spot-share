@@ -1,28 +1,26 @@
 import 'package:flutter/material.dart';
 
 class MenuButtonDetail extends StatelessWidget {
-  void openMenuBar() {
-    // メニューバーを開く処理を行う
-    // ここにメニューバーを表示するためのコードを追加します
-    print('メニューバーが開かれました');
-  }
-
   @override
   Widget build(BuildContext context) {
-    // メニューバーの表示内容を追加
     return Container(
-      width: 200,
-      height: 200,
-      color: Colors.grey,
-      child: Center(
-        child: Text(
-          'メニューバー',
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
+      width: double.infinity,
+      height: 300, // メニュータブの高さを設定
+      color: Colors.white, // メニュータブの背景色を設定
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            'メニュータブの内容',
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+            ),
           ),
-        ),
+          // ここにメニュータブの内容を追加
+          // 例えば、リストやボタンなどのウィジェットを配置できます
+        ],
       ),
     );
   }

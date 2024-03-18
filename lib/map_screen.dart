@@ -249,8 +249,14 @@ class _MapScreenState extends State<MapScreen> with SingleTickerProviderStateMix
                 right: 20,
                 child: MenuButton(//MenuButton.dartファイルから呼び出し
                   onPressed: () {
-                    // ボタンが押されたときの処理をここに記述します
-                    MenuButtonDetail();
+                    setState(() {
+                      _isMenuExpanded = !_isMenuExpanded;
+                    });
+                    // メニュータブを表示する
+                    showModalBottomSheet(
+                      context: context,
+                      builder: (context) => MenuButtonDetail(), // メニュータブを表示
+                    );
                   },
                   icon: Icons.dehaze,
                 ),
@@ -300,6 +306,9 @@ class _MapScreenState extends State<MapScreen> with SingleTickerProviderStateMix
 
   // _buildTabContentWidget()メソッドは、_isMenuExpanded フラグに応じてウィジェットを表示するかどうかを制御します
   Widget _buildTabContentWidget(BuildContext context) {
+    if (_isMenuExpanded) {
+      return Container(); // メニュータブが表示されている場合は空のコンテナを返す
+    }
     return DefaultTabController(
       length: 3,
       child: Container(
