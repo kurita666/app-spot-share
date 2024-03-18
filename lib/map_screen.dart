@@ -9,6 +9,12 @@ import 'Operating_Company.dart';
 import 'TabBar.dart';
 import 'TabBarContentView.dart';
 import 'Default_Menu_Bar.dart';
+import 'Menu_Button.dart';
+import 'Menu_Button_Detail.dart';
+import 'Current_Location_Button.dart';
+import 'Qrcode_Display_Button.dart';
+import 'Help_Outline_Button.dart';
+import 'Help_Outline_Button_Detail.dart';
 import 'Friend_Introduction.dart';
 //import 'Akihabara_Aria1.dart';
 
@@ -189,53 +195,103 @@ class _MapScreenState extends State<MapScreen> with SingleTickerProviderStateMix
                 right: 0,
                 child: SearchFavoBar(),
               ),
-            Positioned(
-              top: 25, // 画面の上端に配置する
-              left: 0,
-              right: 0,
-              child: Container(
-                // width: 300, // 幅を 250 に指定する
-                alignment: Alignment.center,
-                padding: EdgeInsets.symmetric(horizontal: 16.0),
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => FriendIntroducePage()), // FriendIntroducePageへの遷移
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.white, // ボタンの背景色を白に設定
-                    textStyle: TextStyle(
-                      fontSize: 13.0,
-                      color: Colors.black, // 文字色を黒に設定
+            if (!_isMenuExpanded)
+              Positioned(
+                top: 25, // 画面の上端に配置する
+                left: 0,
+                right: 0,
+                child: Container(
+                  // width: 300, // 幅を 250 に指定する
+                  alignment: Alignment.center,
+                  padding: EdgeInsets.symmetric(horizontal: 16.0),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => FriendIntroducePage()), // FriendIntroducePageへの遷移
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white, // ボタンの背景色を白に設定
+                      textStyle: TextStyle(
+                        fontSize: 13.0,
+                        color: Colors.black, // 文字色を黒に設定
+                      ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(1.0), // ボタンの角を 8.0 の半径で設定
+                      ),
                     ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(1.0), // ボタンの角を 8.0 の半径で設定
-                    ),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'お友達を紹介してクーポンゲット！',
-                        textAlign: TextAlign.left, // テキストを左寄せに設定
-                        style: TextStyle(
-                          fontSize: 13.0,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'お友達を紹介してクーポンゲット！',
+                          textAlign: TextAlign.left, // テキストを左寄せに設定
+                          style: TextStyle(
+                            fontSize: 13.0,
+                            color: Colors.black,
+                          ),
+                        ),
+                        SizedBox(width: 30), // テキストとアイコンの間隔を調整
+                        Icon(
+                          Icons.arrow_forward_ios,
+                          size: 20,
                           color: Colors.black,
                         ),
-                      ),
-                      SizedBox(width: 30), // テキストとアイコンの間隔を調整
-                      Icon(
-                        Icons.arrow_forward_ios,
-                        size: 20,
-                        color: Colors.black,
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),
-            ),
+            if (!_isMenuExpanded)
+              Positioned(
+                bottom: 500,
+                right: 20,
+                child: MenuButton(//MenuButton.dartファイルから呼び出し
+                  onPressed: () {
+                    // ボタンが押されたときの処理をここに記述します
+                    MenuButtonDetail();
+                  },
+                  icon: Icons.dehaze,
+                ),
+              ),
+            if (!_isMenuExpanded)
+              Positioned(
+                bottom: 460,
+                right: 20,
+                child: CurrentLocationButton(//Current_Location_Button.dartファイルから呼び出し
+                  onPressed: () {
+                    // ボタンが押されたときの処理をここに記述します
+                  },
+                  icon: Icons.gps_fixed,
+                ),
+              ),
+            if (!_isMenuExpanded)
+              Positioned(
+                bottom: 420,
+                right: 20,
+                child: QrcodeDisplayButton(//Qrcode_Display_Button.dartファイルから呼び出し
+                  onPressed: () {
+                    // ボタンが押されたときの処理をここに記述します
+                  },
+                  icon: Icons.qr_code_2,
+                ),
+              ),
+            if (!_isMenuExpanded)
+              Positioned(
+                bottom: 380,
+                right: 20,
+                child: HelpOutlineButton(//Help_Outline_Button.dartファイルから呼び出し
+                  onPressed: () {
+                    // ボタンが押されたときの処理をここに記述します
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => HelpOutlineButtonDetail()), // FriendIntroducePageへの遷移
+                    );
+                  },
+                  icon: Icons.help_outline,
+                ),
+              ),
           ],
         ),
       );
