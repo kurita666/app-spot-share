@@ -16,6 +16,7 @@ import 'Qrcode_Display_Button.dart';
 import 'Help_Outline_Button.dart';
 import 'Help_Outline_Button_Detail.dart';
 import 'Friend_Introduction.dart';
+
 //import 'Akihabara_Aria1.dart';
 
 class IconDataModel {
