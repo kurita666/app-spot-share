@@ -16,6 +16,7 @@ import 'Qrcode_Display_Button.dart';
 import 'Help_Outline_Button.dart';
 import 'Help_Outline_Button_Detail.dart';
 import 'Friend_Introduction.dart';
+import 'Menu_Mini_Button.dart';
 //import 'Akihabara_Aria1.dart';
 
 class IconDataModel {
@@ -245,21 +246,22 @@ class _MapScreenState extends State<MapScreen> with SingleTickerProviderStateMix
               ),
             if (!_isMenuExpanded)
               Positioned(
-                bottom: 500,
-                right: 20,
-                child: MenuButton(//MenuButton.dartファイルから呼び出し
-                  onPressed: () {
-                    setState(() {
-                      _isMenuExpanded = !_isMenuExpanded;
-                    });
-                    // メニュータブを表示する
-                    showModalBottomSheet(
-                      context: context,
-                      builder: (context) => MenuButtonDetail(), // メニュータブを表示
-                    );
-                  },
-                  icon: Icons.dehaze,
-                ),
+                bottom: 508,
+                right: 29,
+                // child: MenuButton(//MenuButton.dartファイルから呼び出し
+                //   onPressed: () {
+                //     setState(() {
+                //       _isMenuExpanded = !_isMenuExpanded;
+                //     });
+                //     // メニュータブを表示する
+                //     showModalBottomSheet(
+                //       context: context,
+                //       builder: (context) => MenuButtonDetail(), // メニュータブを表示
+                //     );
+                //   },
+                //   icon: Icons.dehaze,
+                // ),
+                child:MenuMiniButton(),
               ),
             if (!_isMenuExpanded)
               Positioned(
@@ -297,6 +299,7 @@ class _MapScreenState extends State<MapScreen> with SingleTickerProviderStateMix
                   },
                   icon: Icons.help_outline,
                 ),
+                //child:TestFile(),
               ),
           ],
         ),
@@ -305,10 +308,12 @@ class _MapScreenState extends State<MapScreen> with SingleTickerProviderStateMix
   }
 
   // _buildTabContentWidget()メソッドは、_isMenuExpanded フラグに応じてウィジェットを表示するかどうかを制御します
+
   Widget _buildTabContentWidget(BuildContext context) {
-    if (_isMenuExpanded) {
-      return Container(); // メニュータブが表示されている場合は空のコンテナを返す
-    }
+    // if (_isMenuExpanded) {
+    //   return ; // メニュータブが表示されている場合は空のコンテナを返す
+    // }
+
     return DefaultTabController(
       length: 3,
       child: Container(
