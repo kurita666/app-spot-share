@@ -9,14 +9,14 @@ import 'Operating_Company.dart';
 import 'TabBar.dart';
 import 'TabBarContentView.dart';
 import 'Default_Menu_Bar.dart';
-import 'Menu_Button.dart';
-import 'Menu_Button_Detail.dart';
 import 'Current_Location_Button.dart';
 import 'Qrcode_Display_Button.dart';
 import 'Help_Outline_Button.dart';
 import 'Help_Outline_Button_Detail.dart';
-import 'Friend_Introduction.dart';
 import 'Menu_Mini_Button.dart';
+import 'Menu_Button.dart';
+import 'Menu_Button_Detail.dart';
+import 'Friend_Introduction.dart';
 //import 'Akihabara_Aria1.dart';
 
 class IconDataModel {
@@ -158,14 +158,14 @@ class _MapScreenState extends State<MapScreen> with SingleTickerProviderStateMix
                 onTap: () {
                   // メニューがタップされても何もしない
                 },
-                child: Container(
+                child: Container(//×の位置や色を設定
                   color: Colors.transparent,
                   child: Stack(
                     children: [
                       _buildTabContentWidget(context),
                       Positioned(
-                        top: 8.0,
-                        right: 8.0,
+                        top: 30.0,
+                        right: 15.0,
                         child: GestureDetector(
                           onTap: () {
                             setState(() {
@@ -191,13 +191,6 @@ class _MapScreenState extends State<MapScreen> with SingleTickerProviderStateMix
               ),
             if (!_isMenuExpanded)
               Positioned(
-                bottom: 0,
-                left: 0,
-                right: 0,
-                child: SearchFavoBar(),
-              ),
-            if (!_isMenuExpanded)
-              Positioned(
                 top: 25, // 画面の上端に配置する
                 left: 0,
                 right: 0,
@@ -207,10 +200,9 @@ class _MapScreenState extends State<MapScreen> with SingleTickerProviderStateMix
                   padding: EdgeInsets.symmetric(horizontal: 16.0),
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => FriendIntroducePage()), // FriendIntroducePageへの遷移
-                      );
+                      Navigator.push(context, SlideUpPageRoute(builder: (context, animation, secondaryAnimation, child) {
+                        return FriendIntroducePage();
+                      }));
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.white, // ボタンの背景色を白に設定
@@ -248,19 +240,6 @@ class _MapScreenState extends State<MapScreen> with SingleTickerProviderStateMix
               Positioned(
                 bottom: 508,
                 right: 29,
-                // child: MenuButton(//MenuButton.dartファイルから呼び出し
-                //   onPressed: () {
-                //     setState(() {
-                //       _isMenuExpanded = !_isMenuExpanded;
-                //     });
-                //     // メニュータブを表示する
-                //     showModalBottomSheet(
-                //       context: context,
-                //       builder: (context) => MenuButtonDetail(), // メニュータブを表示
-                //     );
-                //   },
-                //   icon: Icons.dehaze,
-                // ),
                 child:MenuMiniButton(),
               ),
             if (!_isMenuExpanded)
@@ -292,14 +271,20 @@ class _MapScreenState extends State<MapScreen> with SingleTickerProviderStateMix
                 child: HelpOutlineButton(//Help_Outline_Button.dartファイルから呼び出し
                   onPressed: () {
                     // ボタンが押されたときの処理をここに記述します
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => HelpOutlineButtonDetail()), // FriendIntroducePageへの遷移
-                    );
+                    Navigator.push(context, SlideUpPageRoute2(builder: (context, animation, secondaryAnimation, child) {
+                      return HelpOutlineButtonDetail();
+                    }));
                   },
                   icon: Icons.help_outline,
                 ),
                 //child:TestFile(),
+              ),
+            if (!_isMenuExpanded)
+              Positioned(
+                bottom: 0,
+                left: 0,
+                right: 0,
+                child: SearchFavoBar(),
               ),
           ],
         ),
@@ -310,10 +295,6 @@ class _MapScreenState extends State<MapScreen> with SingleTickerProviderStateMix
   // _buildTabContentWidget()メソッドは、_isMenuExpanded フラグに応じてウィジェットを表示するかどうかを制御します
 
   Widget _buildTabContentWidget(BuildContext context) {
-    // if (_isMenuExpanded) {
-    //   return ; // メニュータブが表示されている場合は空のコンテナを返す
-    // }
-
     return DefaultTabController(
       length: 3,
       child: Container(

@@ -1,6 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:new_share_app/Help_Outline_Button.dart';
 
+class SlideUpPageRoute2<T> extends PageRouteBuilder<T> {
+  final Widget Function(BuildContext, Animation<double>, Animation<double>, Widget) builder;
+  SlideUpPageRoute2({required this.builder})
+      : super(
+    pageBuilder: (BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation) =>
+        builder(context, animation, secondaryAnimation, Container()),
+    transitionsBuilder: (BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation,
+        Widget child) {
+      return SlideTransition(
+        position: Tween<Offset>(
+          begin: Offset(0.0, 1.0),
+          end: Offset.zero,
+        ).animate(animation),
+        child: child,
+      );
+    },
+  );
+}
+
 void main() {
   runApp(MyApp());
 }
