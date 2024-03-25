@@ -7,7 +7,8 @@ class MapPinAddInfo extends StatefulWidget {
 }
 
 class _MapPinAddInfoState extends State<MapPinAddInfo> {
-  bool isToggleOn = true;
+  bool isEVToggleOn = true;
+  bool isGourmetToggleOn = true;
 
   @override
   Widget build(BuildContext context) {
@@ -89,15 +90,15 @@ class _MapPinAddInfoState extends State<MapPinAddInfo> {
                               ),
                               SizedBox(width: 50),
                               CupertinoSwitch(
-                                value: isToggleOn,
-                                activeColor: Colors.orange, // ON のときの色をオレンジ色に設定
+                                value: isEVToggleOn,
+                                activeColor: Colors.orange,
                                 onChanged: (value) {
-                                  // サウンドON/OFFの状態を切り替える
                                   setState(() {
-                                    isToggleOn = value;
+                                    isEVToggleOn = value;
                                   });
                                 },
                               ),
+
                             ],
                           ),
                           SizedBox(height: 20),
@@ -138,15 +139,15 @@ class _MapPinAddInfoState extends State<MapPinAddInfo> {
                               ),
                               SizedBox(width: 70),
                               CupertinoSwitch(
-                                value: isToggleOn,
-                                activeColor: Colors.orange, // ON のときの色をオレンジ色に設定
+                                value: isGourmetToggleOn,
+                                activeColor: Colors.orange,
                                 onChanged: (value) {
-                                  // サウンドON/OFFの状態を切り替える
                                   setState(() {
-                                    isToggleOn = value;
+                                    isGourmetToggleOn = value;
                                   });
                                 },
                               ),
+
                               SizedBox(height: 70),
                             ],
                           ),

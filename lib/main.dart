@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart'; // flutter_localizationsパッケージをインポート
 import 'map_screen.dart'; // map_screen.dartファイルをインポート
 
 void main() {
@@ -10,6 +11,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        // 追加のロケールデリゲートをここに追加する
+      ],
+      supportedLocales: [
+        const Locale('ja', ''), // 日本語
+        // サポートする他のロケールをここに追加する
+      ],
       home: Scaffold(
         body: Stack(
           children: [

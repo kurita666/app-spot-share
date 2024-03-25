@@ -1,3 +1,7 @@
+//Help_Outline_Button.dartファイル
+//Top画面の右端4つのボタンの1番下のアイコンボタンを表示しているコード
+//map_screen.dartファイルの278行目あたりで呼び出し
+
 import 'package:flutter/material.dart';
 
 class HelpOutlineButton extends StatelessWidget {

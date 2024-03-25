@@ -1,3 +1,7 @@
+//Default_Menu_Bar.dart
+//Top画面の下端にメニュータブを表示させるコード
+//map_screen.dartファイルの293行目あたりで呼び出し
+
 import 'package:flutter/material.dart';
 import 'Search_Tab_Cycling.dart';
 import 'Map_Pin_Add_Info.dart'; // Map_Pin_Add_Infoファイルをインポート

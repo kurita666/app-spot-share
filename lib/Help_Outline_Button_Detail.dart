@@ -1,7 +1,11 @@
+//Help_Outline_Button_Detail.dartファイル
+//Top画面の右端4つのボタンの1番下のアイコンボタンをタップした際に読まれるコード
+//map_screen.dartファイルの281行目あたりで呼び出し
+
 import 'package:flutter/material.dart';
-import 'package:new_share_app/Help_Outline_Button.dart';
 
 class SlideUpPageRoute2<T> extends PageRouteBuilder<T> {
+  //ヘルプページの「表示」と「閉じる」アニメーションを下から上、上から下に変更するコード
   final Widget Function(BuildContext, Animation<double>, Animation<double>, Widget) builder;
   SlideUpPageRoute2({required this.builder})
       : super(
@@ -42,7 +46,7 @@ class _HelpOutlineButtonDetailState extends State<HelpOutlineButtonDetail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: AppBar(//ヘッダー部のコード
         automaticallyImplyLeading: false, // 戻るアイコンを削除する
         // アクションを設定
         actions: [
@@ -70,17 +74,16 @@ class _HelpOutlineButtonDetailState extends State<HelpOutlineButtonDetail> {
                     color: Colors.black,
                   ),
                   onPressed: () {
-                    // 前のページに戻る
-                    Navigator.pop(context);
+                    Navigator.pop(context);// 前のページに戻る
                   },
                 ),
               ],
             ),
           ),
         ],
-        backgroundColor: Colors.orange, // ヘッダー部の背景色を青に設定
+        backgroundColor: Colors.orange, // ヘッダー部の背景色をオレンジに設定
       ),
-      body: SingleChildScrollView(
+      body: SingleChildScrollView(//ボディ部のコード
         child: Column(
           children: [
             SizedBox(height: 10), // テキストとアイコンの間隔を調整
@@ -92,6 +95,7 @@ class _HelpOutlineButtonDetailState extends State<HelpOutlineButtonDetail> {
             ),
             SizedBox(height: 20), // 余白を追加
             Container(
+              //※「ご利用ガイドへ」をタップした際のコードは未作成
               width: 300, // 任意の幅を指定してください
               child: ElevatedButton(
                 onPressed: () {
@@ -113,10 +117,6 @@ class _HelpOutlineButtonDetailState extends State<HelpOutlineButtonDetail> {
                           color: Colors.black,
                         ),
                       ),
-                      // VerticalDivider(
-                      //   color: Colors.black,
-                      //   width: 2,
-                      // ),
                       Expanded(
                         flex: 8,
                         child: Text(
@@ -131,7 +131,7 @@ class _HelpOutlineButtonDetailState extends State<HelpOutlineButtonDetail> {
               ),
             ),
             SizedBox(height: 15), // 余白を追加
-            Divider(
+            Divider(//横に線を入れる
               color: Colors.grey,
               height: 2,
             ),
@@ -173,6 +173,7 @@ class _HelpOutlineButtonDetailState extends State<HelpOutlineButtonDetail> {
             ),
             SizedBox(height: 7), // 余白を追加
             Container(
+              //※「エラーが表示される」をタップした際のコードは未作成
               width: 300, // 任意の幅を指定してください
               child: ElevatedButton(
                 onPressed: () {
@@ -209,6 +210,7 @@ class _HelpOutlineButtonDetailState extends State<HelpOutlineButtonDetail> {
             ),
             SizedBox(height: 7), // 余白を追加
             Container(
+              //※「返却できない」をタップした際のコードは未作成
               width: 300, // 任意の幅を指定してください
               child: ElevatedButton(
                 onPressed: () {
@@ -245,6 +247,7 @@ class _HelpOutlineButtonDetailState extends State<HelpOutlineButtonDetail> {
             ),
             SizedBox(height: 7), // 余白を追加
             Container(
+              //※「車両の不具合」をタップした際のコードは未作成
               width: 300, // 任意の幅を指定してください
               child: ElevatedButton(
                 onPressed: () {
@@ -286,6 +289,7 @@ class _HelpOutlineButtonDetailState extends State<HelpOutlineButtonDetail> {
             ),
             SizedBox(height: 7), // 余白を追加
             Container(
+              //※「車両の不具合」をタップした際のコードは未作成
               width: 300, // 任意の幅を指定してください
               child: ElevatedButton(
                 onPressed: () {
@@ -322,6 +326,7 @@ class _HelpOutlineButtonDetailState extends State<HelpOutlineButtonDetail> {
             ),
             SizedBox(height: 7), // 余白を追加
             Container(
+              //※「利用開始できない」をタップした際のコードは未作成
               width: 300, // 任意の幅を指定してください
               child: ElevatedButton(
                 onPressed: () {
@@ -358,6 +363,7 @@ class _HelpOutlineButtonDetailState extends State<HelpOutlineButtonDetail> {
             ),
             SizedBox(height: 7), // 余白を追加
             Container(
+              //※「料金・決済について」をタップした際のコードは未作成
               width: 300, // 任意の幅を指定してください
               child: ElevatedButton(
                 onPressed: () {
@@ -399,6 +405,7 @@ class _HelpOutlineButtonDetailState extends State<HelpOutlineButtonDetail> {
             ),
             SizedBox(height: 7), // 余白を追加
             Container(
+              //※「事故に遭った・起こした」をタップした際のコードは未作成
               width: 300, // 任意の幅を指定してください
               child: ElevatedButton(
                 onPressed: () {

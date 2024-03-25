@@ -1,5 +1,10 @@
+//Current_Location_Button.dartファイル
+//Top画面の右端4つのボタンの上から2番目のアイコンボタンを表示しているコード
+//map_screen.dartファイルの254行目あたりで呼び出し
+
 import 'package:flutter/material.dart';
 
+//※ボタンをタップした際のコードは未作成
 class CurrentLocationButton extends StatelessWidget {
   final VoidCallback onPressed;
   final IconData icon;

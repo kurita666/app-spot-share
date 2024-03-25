@@ -1,4 +1,8 @@
-  import 'package:flutter/material.dart';
+//Menu_Mini_Button.dartファイル
+//Top画面の右端4つのボタンの1番上をタップするとメニューページを表示するコード
+//map_screen.dartファイルの247行目で呼び出し
+
+import 'package:flutter/material.dart';
 
   class MenuMiniButton extends StatefulWidget {
     @override
@@ -12,7 +16,7 @@
         onTap: () {
           showModalBottomSheet(
             context: context,
-            isScrollControlled: true,
+            isScrollControlled: true,//スクロール可能に
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(20),
@@ -22,7 +26,7 @@
             builder: (BuildContext context) {
               return Container(
                 alignment: Alignment.topCenter, // 画像を上部に配置する
-                height: MediaQuery.of(context).size.height * 0.9,
+                height: MediaQuery.of(context).size.height * 0.9,//画面全体の9割で表示を止める
                 child: Column(
                   children: [
                     Container(
@@ -31,7 +35,7 @@
                         padding: EdgeInsets.symmetric(vertical: 15),
                         child: Row(
                           children: [
-                            Expanded(
+                            Expanded(//ヘッダー部の表示テキスト＆アイコン
                               child: Text(
                                 'メニュー',
                                 textAlign: TextAlign.center,
@@ -43,7 +47,7 @@
                               ),
                             ),
                             GestureDetector(
-                              onTap: () {
+                              onTap: () {//メニュー文字の右にあるアイコンをタップすると前のページに戻る
                                 Navigator.of(context).pop();
                               },
                               child: Icon(
@@ -56,9 +60,9 @@
                         ),
                       ),
                     ),
-                    Expanded(
+                    Expanded(//ボディ部のコード
                       child:Container(
-                        color: Colors.grey[200], // テキストの背景色を薄いグレーに設定
+                        color: Colors.grey[200], // ボディ部の背景色を薄いグレーに設定
                       child: SingleChildScrollView(
                         child: Column(
                           children: [
@@ -102,14 +106,14 @@
                                     children: [
                                       Expanded(
                                         child: GestureDetector(
-                                          onTap: () {
+                                          onTap: () {//※「会員登録情報確認・変更/決済方法変更/月額プラン申込ページ」は作成していません
                                             // ボタンがタップされたときの処理をここに記述します
                                           },
                                           child: Text(
                                             '会員登録情報確認・変更/決済方法変更/月額プラン申込',
                                             textAlign: TextAlign.center,
                                             style: TextStyle(
-                                              color: Colors.grey, // テキストの色を青に設定します
+                                              color: Colors.grey, // テキストの色をグレーに設定
                                               fontSize: 9,
                                             ),
                                           ),
@@ -140,7 +144,7 @@
                                     size: 20,
                                   ),
                                   SizedBox(width: 10),
-                                  Text(
+                                  Text(//この先のメッセージページに遷移するコードは未作成
                                   'メッセージ',
                                     style: TextStyle(
                                       color: Colors.black,
@@ -173,7 +177,7 @@
                                         size: 20,
                                       ),
                                       SizedBox(width: 10),
-                                      Text(
+                                      Text(//この先の予約・利用履歴ページに遷移するコードは未作成
                                         '予約・利用履歴',
                                         style: TextStyle(
                                           color: Colors.black,
@@ -202,7 +206,7 @@
                                         size: 20,
                                       ),
                                       SizedBox(width: 10),
-                                      Text(
+                                      Text(//この先の利用明細書発行ページに遷移するコードは未作成
                                         '利用明細書発行',
                                         style: TextStyle(
                                           color: Colors.black,
@@ -232,7 +236,7 @@
                                       ),
                                       SizedBox(width: 10),
                                       Text(
-                                        'クーポン一覧',
+                                        'クーポン一覧',//この先のクーポン一覧ページに遷移するコードは未作成
                                         style: TextStyle(
                                           color: Colors.black,
                                           fontSize: 12,
@@ -260,7 +264,7 @@
                                         size: 20,
                                       ),
                                       SizedBox(width: 10),
-                                      Text(
+                                      Text(//この先のICカード・HELLOカードページに遷移するコードは未作成
                                         'ICカード・HELLOカード',
                                         style: TextStyle(
                                           color: Colors.black,
@@ -289,7 +293,7 @@
                                         size: 20,
                                       ),
                                       SizedBox(width: 10),
-                                      Text(
+                                      Text(//この先のICカード・HELLOカードページに遷移するコードは未作成
                                         'HELLOマイル',
                                         style: TextStyle(
                                           color: Colors.black,
@@ -318,7 +322,7 @@
                                         size: 20,
                                       ),
                                       SizedBox(width: 10),
-                                      Text(
+                                      Text(//この先の電動サイクル利用準備ページに遷移するコードは未作成
                                         '電動サイクル利用準備',
                                         style: TextStyle(
                                           color: Colors.black,
@@ -347,7 +351,7 @@
                                         size: 20,
                                       ),
                                       SizedBox(width: 10),
-                                      Text(
+                                      Text(//この先の交通ルールとマナーページに遷移するコードは未作成
                                         '交通ルールとマナー',
                                         style: TextStyle(
                                           color: Colors.black,
@@ -376,7 +380,7 @@
                                         size: 20,
                                       ),
                                       SizedBox(width: 10),
-                                      Text(
+                                      Text(//この先のヘルプ・ご利用ガイドページに遷移するコードは未作成
                                         'ヘルプ・ご利用ガイド',
                                         style: TextStyle(
                                           color: Colors.black,
@@ -404,7 +408,7 @@
                                 crossAxisAlignment: CrossAxisAlignment.center, // セルの高さの中央に配置する
                                 children: [
                                   SizedBox(width: 10),
-                                  Text(
+                                  Text(//※この先のこのアプリについてページに遷移するコードは未作成
                                     'このアプリについて',
                                     style: TextStyle(
                                       color: Colors.black,
@@ -443,7 +447,7 @@
                                 crossAxisAlignment: CrossAxisAlignment.center, // セルの高さの中央に配置する
                                 children: [
                                   SizedBox(width: 10),
-                                  Text(
+                                  Text(//※この先の言語変更ページに遷移するコードは未作成
                                     '日本語',
                                     style: TextStyle(
                                       color: Colors.black,

@@ -1,4 +1,9 @@
+//Qrcode_Display_Button.dartファイル
+//Top画面の右端4つのボタンの上から3番目のアイコンボタンを表示しているコード
+//map_screen.dartファイルの266行目あたりで呼び出し
+
 import 'package:flutter/material.dart';
+//※ボタンをタップした際のコードは未作成
 
 class QrcodeDisplayButton extends StatelessWidget {
   final VoidCallback onPressed;
