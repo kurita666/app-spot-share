@@ -134,11 +134,11 @@ class ReservationDisplay extends StatelessWidget {
                           CautionText(
                               iconData: iconData2), //CautionText.dartファイル呼び出し
                           SizedBox(height: 8),
-                          CouponDisplay(iconData: iconData2),
+                          CouponDisplay(iconData: iconData2),//Coupon_Display.dartファイル呼び出し
                           SizedBox(height: 8),
-                          PaymentMethod(iconData: iconData2),
+                          PaymentMethod(iconData: iconData2),//Payment_Method_Display.dartファイルで呼び出し
                           SizedBox(height: 10),
-                          ConsentForm(iconData: iconData2),
+                          ConsentForm(iconData: iconData2),//
                           SizedBox(height: 10),
                         ],
                       ),

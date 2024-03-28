@@ -1,3 +1,6 @@
+//ReservationDetail.dart
+//レンタル自転車の料金プランを表示するコード
+//ReservationDetail.dart132行目で呼び出し
 import 'package:flutter/material.dart';
 import 'map_screen.dart';
 

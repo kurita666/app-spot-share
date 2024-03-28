@@ -1,3 +1,7 @@
+//Map_Pin_Add_Info.dart
+//TOP画面下端メニューバーに存在する、検索バー右隣アイコンをタップすることで呼び出されるコード
+//小型スクーターや中央線沿線のグルメ情報も表示するかどうかを切り替えるコード。
+//Default_Menu_Bar.dartファイル97行目あたりで呼び出される
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 

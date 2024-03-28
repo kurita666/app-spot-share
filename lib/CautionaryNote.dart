@@ -1,3 +1,6 @@
+//CautionaryNote.dart
+//注意事項を表示するコード
+//Reaservation_Display.dart135行目で呼び出し
 import 'package:flutter/material.dart';
 import 'map_screen.dart';
 

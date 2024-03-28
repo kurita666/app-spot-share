@@ -1,3 +1,6 @@
+//PlaceName_Favorite.dart
+//会社名の表示＆お気に入りボタンを表示しON/OFFできるコード
+//map_screen.dartの313行目で呼び出されている
 import 'package:flutter/material.dart';
 
 class CompanyRow extends StatelessWidget {

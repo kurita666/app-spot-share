@@ -1,3 +1,6 @@
+//Business_Hours.dart
+//営業時間を表示するファイル
+//map_screen.dartファイルの334行目で呼び出される
 import 'package:flutter/material.dart';
 import 'map_screen.dart'; // map_screen.dartからIconDataModelをインポート
 

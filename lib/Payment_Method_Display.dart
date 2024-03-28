@@ -1,3 +1,6 @@
+//Payment_Method_Display.dart
+//決済方法を決める・利用規約のチェックボックスを表示するコード
+//Reaservation_Display.dartの139行目で呼び出し
 import 'package:flutter/material.dart';
 import 'map_screen.dart';
 

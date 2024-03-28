@@ -1,3 +1,6 @@
+//Table_Display.dart
+//レンタル可能な自転車数や返却可能な自転車数を表示するファイル
+//map_screen.dartファイルの322行目で呼び出し
 import 'package:flutter/material.dart';
 
 class TableContainer extends StatelessWidget {

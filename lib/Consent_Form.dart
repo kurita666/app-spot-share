@@ -1,3 +1,6 @@
+//Consent_Form.dart
+//利用規約のチェックボックス作成・お支払い決定ボタンを表示
+//Reaservation_Display.dartの141行目で呼び出し
 import 'package:flutter/material.dart';
 import 'map_screen.dart';
 import 'Dialog_Display_Fail.dart';

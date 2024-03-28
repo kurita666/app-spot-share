@@ -1,3 +1,6 @@
+//Operating_Company.dart
+//運営会社を表示するコード
+//map_screen.dartファイル337行目で呼び出される
 import 'package:flutter/material.dart';
 import 'map_screen.dart'; // map_screen.dartからIconDataModelをインポート
 

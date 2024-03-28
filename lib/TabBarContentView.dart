@@ -1,3 +1,6 @@
+//TabBarContentView.dart
+//「すべて」「自転車」「電動サイクル」それぞれのコンテンツを表示する
+//map_screen.dartファイルの366行目で呼び出される
 import 'package:flutter/material.dart';
 import 'AllGenres_Tab.dart';
 import 'CyclingGenre_Tab.dart';
@@ -30,7 +33,7 @@ class _TabBarContentState extends State<TabBarContent> {
               Align(
                 alignment: Alignment.topCenter,
                 child: Container(
-                  width: 300,
+                  width: 305,
                   height: 180,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -69,7 +72,7 @@ class _TabBarContentState extends State<TabBarContent> {
               Align(
                 alignment: Alignment.topCenter,
                 child: Container(
-                  width: 300,
+                  width: 305,
                   height: 180,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -119,7 +122,8 @@ class _TabBarContentState extends State<TabBarContent> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    ReservationDisplay(iconData2: widget.iconData), // iconDataを渡す
+                    ReservationDisplay(iconData2: widget.iconData),//Reservation_Display.dartファイルを呼び出す
+                    // iconDataを渡す
                   ],
                 ),
               ),

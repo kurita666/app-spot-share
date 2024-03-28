@@ -124,13 +124,13 @@ class _MapScreenState extends State<MapScreen> with SingleTickerProviderStateMix
 
   @override
   Widget build(BuildContext context) {
-    if (_customMarkerIcon == null) {
+    if (_customMarkerIcon == null) {//自転車アイコン表示コード
       return CircularProgressIndicator();
     } else {
       return Scaffold(
         body: Stack(
           children: [
-            MapDisplay(
+            MapDisplay(//GoogleMap_Display.dartから呼び出し
               initialPosition: LatLng(35.699872, 139.775335),
               customMarkerIcon: _customMarkerIcon!,
               onIconTap: () {
@@ -189,7 +189,7 @@ class _MapScreenState extends State<MapScreen> with SingleTickerProviderStateMix
                   child: ElevatedButton(
                     onPressed: () {//友達紹介ページを開く
                       Navigator.push(context, SlideUpPageRoute(builder: (context, animation, secondaryAnimation, child) {
-                        return FriendIntroducePage();//Friend_Introduction.dartから呼び出し
+                        return FriendIntroducePage();//Friend_Introduction.dartファイルから呼び出し
                       }));
                     },
                     style: ElevatedButton.styleFrom(//ボタンの色彩、文字サイズ設定
@@ -226,7 +226,7 @@ class _MapScreenState extends State<MapScreen> with SingleTickerProviderStateMix
                 ),
               ),
             if (!_isMenuExpanded)
-              Positioned(//メニュバー
+              Positioned(//メニューボタン
                 //Top画面の右端、正方形のボタンの4つのうちの1番上のボタンに関するコード
                 bottom: 508,
                 right: 29,

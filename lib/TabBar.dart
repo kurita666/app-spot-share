@@ -1,3 +1,6 @@
+//TabBar.dart
+//「すべて」「自転車」「電動サイクル」3つのタブを作成し表示するコード
+//map_screen.dart340行目で呼び出される
 import 'package:flutter/material.dart';
 
 class CustomTabBar extends StatelessWidget {

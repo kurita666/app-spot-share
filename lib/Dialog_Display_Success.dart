@@ -1,3 +1,6 @@
+//Dialog_Display_Success.dart
+//チェックボックスがON/OFFそれぞれの対応を記載しているコード
+//Consent_Form.dartファイルの90、98行目で呼び出し
 import 'package:flutter/material.dart';
 
 class CustomDialogS extends StatelessWidget {

@@ -1,3 +1,6 @@
+//Search_Tab_Cycling.dart
+//Top画面下部のメニューバー内に存在する、「すべて」「自転車」「電動サイクル」3つのタブを表示するコード
+//Default_Menu_Bar.dartの103行目あたりで呼び出される
 import 'package:flutter/material.dart';
 
 class SearchTabCycling extends StatefulWidget {
