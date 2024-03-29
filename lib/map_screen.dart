@@ -15,9 +15,6 @@ import 'Help_Outline_Button.dart';
 import 'Help_Outline_Button_Detail.dart';
 import 'Menu_Mini_Button.dart';
 import 'GoogleMap_Display.dart';
-// import 'Menu_Button.dart';
-// import 'Menu_Button_Detail.dart';
-// import 'Friend_Introduction.dart';
 //import 'Akihabara_Aria1.dart';
 
 class IconDataModel {
